@@ -51,7 +51,7 @@ class CardPhoto extends Component {
                     {this.state.photo.title}
                   </MDBCardTitle>
                   {this.state.photo.comments.map(comment => (
-                    <Comment content={comment.content} />
+                    <Comment key = {comment.id} content={comment.content} />
                   ))}
                   <CommentBox photo_id={this.state.photo.id} />
                 </MDBContainer>
