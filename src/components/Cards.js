@@ -15,27 +15,23 @@ class CardPhoto extends Component {
     this.state = {
       photo: props.photo
     };
-    console.log("Constructing");
-    console.log(props);
-    console.log(this.state.photo);
+
   }
 
   componentDidMount() {
     let photo = this.props.photo;
     this.setState({ photo: photo });
-    console.log("did mount");
   }
 
   render() {
-    console.log("rendering");
     return (
       <React.Fragment>
-        <div key={this.state.photo.id} style={{ marginBottom: "50px" }}>
+        <div key={this.state.photo.id} style={{ marginBottom: "25px" }}>
           <center>
             <MDBCard
               className="shadow hoverable"
               style={{
-                width: "42rem"
+                width: "41rem"
               }}
             >
               <MDBCardImage

@@ -12,10 +12,11 @@ class MainApp extends Component {
       photos: [],
       insideStyles: {
         padding: 20,
-        position: "relative"
+        position: "relative",
         // top: "50%",
         // left: "50%",
         // transform: "translate(-50%,-50%)"
+        width:null
       },
       width: null,
       height: null,
@@ -25,22 +26,33 @@ class MainApp extends Component {
 
   componentDidMount() {
     this.setState({ width: window.screen.availWidth });
+    this.setState({ insideStyles:{
+      padding: 20,
+      position: "relative",
+      // top: "50%",
+      // left: "50%",
+      // transform: "translate(-50%,-50%)"
+      width:window.screen.availWidth
+    } });
+
     this.setState({ height: window.screen.availHeight });
     let photos = this.props.photoset;
     this.setState({ photos: photos });
   }
   render() {
+    console.log(this.props);
     return (
       <Parallax
         bgImage={this.state.bg}
-        bgImageWidth={this.state.width * 1.5}
-        bgImageHeight={this.state.width * 10}
-        strength={this.state.width*1.5}
+        
+        
+        
+        strength={this.state.width*2}
       >
         <div style={this.state.insideStyles}>
           <div><NavBarApp id="navbar"/></div>
           <div><Header id="header"/></div>
-          {this.props.photoset.map((photo) => (
+          {this.props && this.props.photoset.map((photo) => (
             <CardPhoto photo_id={photo.id} key={photo.id} photo={photo} />
           ))}
           <div><Footer/></div>
