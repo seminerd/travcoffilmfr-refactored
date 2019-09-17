@@ -22,8 +22,8 @@ class MainApp extends Component {
       bg: "bg.jpg",
       bgStyle:{
         position:"absolute",
-        width:window.screen.availWidth,
-        height: window.screen.availWidth*10,
+        width:window.screen.availWidth*1.2,
+        height: window.screen.availHeight*1.2,
         repeat:"repeat-y"
 
       }
@@ -32,6 +32,12 @@ class MainApp extends Component {
   }
 
   componentDidMount() {
+    this.setState({bgStyle:{
+      position:"absolute",
+        width:window.screen.availWidth*1.2,
+        height: window.screen.availWidth*12,
+        repeat:"repeat-y"
+    }})
     this.setState({ width: window.screen.availWidth });
     this.setState({
       insideStyles: {

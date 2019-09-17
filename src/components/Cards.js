@@ -15,12 +15,9 @@ class CardPhoto extends Component {
     this.state = {
       photo: props.photo
     };
-
   }
 
-  componentDidMount() {
-    
-  }
+  componentDidMount() {}
 
   render() {
     return (
@@ -34,6 +31,7 @@ class CardPhoto extends Component {
               }}
             >
               <MDBCardImage
+                hover
                 className="img-fluid"
                 variant="top"
                 key={this.state.photo.id}
@@ -46,7 +44,7 @@ class CardPhoto extends Component {
                     {this.state.photo.title}
                   </MDBCardTitle>
                   {this.state.photo.comments.map(comment => (
-                    <Comment key = {comment.id} content={comment.content} />
+                    <Comment key={comment.id} content={comment.content} />
                   ))}
                   <CommentBox photo_id={this.state.photo.id} />
                 </MDBContainer>
