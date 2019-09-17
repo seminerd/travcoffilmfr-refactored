@@ -19,8 +19,7 @@ class CardPhoto extends Component {
   }
 
   componentDidMount() {
-    let photo = this.props.photo;
-    this.setState({ photo: photo });
+    
   }
 
   render() {

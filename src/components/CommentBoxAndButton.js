@@ -17,36 +17,46 @@ class CommentBox extends Component {
     this.setState({ content: event.target.value });
     console.log(event.target.value);
   }
+  handleSubmit(event){
+    event.preventDefault();
+
+  }
   postComment() {
-    axios({
+    if(!(this.state.content==='')) {
+      axios({
         method: "post",
         url: "https://salty-springs-26389.herokuapp.com/comment?content="+this.state.content+"&photo_id="+this.state.photo_id
       });
       console.log("posted");
-      alert("Comment sent, you'll see it after reload");
-      return ( <React.Fragment><MDBCardText align="left" className="card-text">{this.state.content}</MDBCardText></React.Fragment> );
+      alert("Comment gửi rồi đó ! Reload sẽ thấy nha ^^ ");
+      document.getElementById("content"+this.state.photo_id).value='';
+    } else 
+    alert("Không gửi được comment rỗng đâu nha ! :\"> ");
+      
 
   }
   render() {
     return (
       <React.Fragment>
-        <form align="right">
+        <Form align="right" onSubmit={this.handleSubmit} >
           <Form.Group
             id="cmt"
             align="left"
             width="100px"
             controlId="formBasicEmail"
+            onSubmit={() => {return false;}}
           >
             <Form.Control
+            id = {"content" +this.state.photo_id}
               type="text"
               placeholder="Comment here"
               onChange={this.handleChange.bind(this)}
             />
           </Form.Group>
-          <MDBBtn onClick={this.postComment.bind(this)} type="button" className="btn btn-light-blue">
+          <MDBBtn onClick={this.postComment.bind(this)} type="submit" className="btn btn-light-blue">
             comment~
           </MDBBtn>
-        </form>
+        </Form>
       </React.Fragment>
     );
   }
