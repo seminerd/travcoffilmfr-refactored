@@ -9,7 +9,7 @@ class Header extends Component {
             alt="header"
             src="enjoy.png"
             width="350px"
-              style={{ marginBottom: "60px", marginTop: "100px" }}
+              style={{ marginBottom: "60px", marginTop: "60px" }}
           ></img>
         </center>
       </div>

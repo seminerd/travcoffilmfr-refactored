@@ -53,4 +53,7 @@
       transform: translate(19px, 0);
     }
   }
+html {
+  scroll-behavior: smooth;
+}
   
